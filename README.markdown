@@ -18,26 +18,31 @@ me2day "Easy Authentication (Web-based)"
 .. and then user accept the auth
 .. and then in callback
 
-token, user_id, user_key, result = request.params["token"], request.params["user_id"], request.params["user_key"], request.params["result"]
+	token, user_id, user_key, result = request.params["token"], request.params["user_id"], request.params["user_key"], request.params["result"]
 
-if result == 'true'
+	if result == 'true'
 
-	@client = Me2day::Client.new(
-		:user_id => request.params[:user_id],
-		:user_key => request.params[:user_key],
-		:app_key => "YOUR_ME2DAY_APPLICATION_KEY"
-	)
+		@client = Me2day::Client.new(
+			:user_id => user_id,
+			:user_key => user_key,
+			:app_key => "YOUR_ME2DAY_APPLICATION_KEY"
+		)
 
-	@client.get("/noop")
-	=> {"error"=>{"code"=>"0", "description"=>nil, "message"=>"\354\204\261\352\263\265\355\226\210\354\212\265\353\213\210\353\213\244."}}
+		@client.get("/noop")
+		=> {"error"=>{"code"=>"0", "description"=>nil, "message"=>"\354\204\261\352\263\265\355\226\210\354\212\265\353\213\210\353\213\244."}}
 
-	@client.post("/create_post/[me2_user_id]", :query => { 'post[body]' => "Hello! me2!!" })
+		OR 
+		
+		@client.noop
 
-	OR
+
+		@client.post("/create_post/[me2_user_id]", :query => { 'post[body]' => "Hello! me2!!" })
+
+		OR
 	
-	@client.create_post('me2_user_id', 'post[body]' => "Hi!, How are you!!")
+		@client.create_post('me2_user_id', 'post[body]' => "Hi!, How are you!!")
 
-end
+	end
 
 
 Todos
