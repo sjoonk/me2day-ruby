@@ -34,6 +34,7 @@ me2day "Easy Authentication (Web-based)"
 		OR 
 		
 		@client.noop
+		=> {"error"=>{"code"=>"0", "description"=>nil, "message"=>"\354\204\261\352\263\265\355\226\210\354\212\265\353\213\210\353\213\244."}}
 
 
 		@client.post("/create_post/[me2_user_id]", :query => { 'post[body]' => "Hello! me2!!" })

@@ -1,0 +1,8 @@
+LICENSE
+README.markdown
+Rakefile
+lib/me2day.rb
+lib/me2day/client.rb
+test/client_test.rb
+test/test_helper.rb
+Manifest
