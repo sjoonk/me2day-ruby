@@ -36,12 +36,16 @@ me2day "Easy Authentication (Web-based)"
 		@client.noop
 		=> {"error"=>{"code"=>"0", "description"=>nil, "message"=>"\354\204\261\352\263\265\355\226\210\354\212\265\353\213\210\353\213\244."}}
 
+		OR
+
+		client.noop(:format => 'json')
+		=> {"code"=>1007, "description"=>"\354\225\224\355\230\270\352\260\200 \354\235\274\354\271\230\355\225\230\354\247\200 \354\225\212\354\212\265\353\213\210\353\213\244.", "message"=>"\354\235\270\354\246\235 \354\213\244\355\214\250"}
 
 		@client.post("/create_post/[me2_user_id]", :query => { 'post[body]' => "Hello! me2!!" })
 
 		OR
 	
-		@client.create_post('me2_user_id', 'post[body]' => "Hi!, How are you!!")
+		@client.create_post('me2_user_id', "Hi!, How are you!!")
 
 	end
 

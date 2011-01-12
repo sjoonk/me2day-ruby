@@ -25,20 +25,55 @@ module Me2day
 
     # API wrappers
 
-    def noop
-      get("/noop")
-    end
-    
-    def create_post(user_id, options={})
+    def accept_friendship_request(friendship_request_id, message)
       format = options.delete(:format) || DEFAULT_FORMAT
-      post("/create_post/#{user_id}.#{format}", :query => options)
+      post("/accept_friendship_request.#{format}", 
+            :query => {:friendship_request_id => friendship_request_id, :message => message})
     end
-    
+
     def create_comment(post_id, body)
       format = options.delete(:format) || DEFAULT_FORMAT
       post("/create_comment.#{format}", :query => {:post_id => post_id, :body => body})
     end
 
+    def create_post(user_id, post_body, options={})
+      format = options.delete(:format) || DEFAULT_FORMAT
+      post("/create_post/#{user_id}.#{format}", :query => options.merge('post[body]' => post_body))
+    end
+    
+    def delete_comment(comment_id)
+      format = options.delete(:format) || DEFAULT_FORMAT
+      post("/delete_comment.#{format}", :query => {:comment_id => comment_id})
+    end
+
+    def delete_post(post_id)
+      format = options.delete(:format) || DEFAULT_FORMAT
+      post("/delete_post.#{format}", :query => {:post_id => post_id})
+    end
+
+    def friendship(user_id, options={})
+      format = options.delete(:format) || DEFAULT_FORMAT
+      scope = options.delete(:scope)
+      value = options.delete(:value)
+      post("/delete_post.#{format}", :query => {:user_id => user_id, :scope => scope, :value => value})
+    end
+
+    def get_bands(band_id, include_members=false)
+      format = options.delete(:format) || DEFAULT_FORMAT
+      get("/get_bands.#{format}", :query => {:band_id => band_id, :include_members => include_members.to_s})
+    end
+    
+    def noop(options={})
+      format = options.delete(:format) || DEFAULT_FORMAT
+      get("/noop.#{format}")
+    end
+
+    def get_person(user_id)
+      format = options.delete(:format) || DEFAULT_FORMAT
+      get("/get_person/#{user_id}.#{format}")
+    end
+
+    
     private
 
     def u_key(user_key)
