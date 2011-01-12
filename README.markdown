@@ -1,4 +1,4 @@
-An API client for me2day(http://me2day.net), a Twitter-like Korean popular social networking service.
+An API client for me2day(http://me2day.net), a twitter-like popular Korean social networking service.
 
 Install
 =====
