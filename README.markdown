@@ -9,6 +9,8 @@ $ (sudo) gem install me2day-ruby
 me2day "Easy Authentication (Web-based)"
 =====
 
+	require 'me2day'
+	
 	@auth_url = Me2day::Client.get_auth_url(:app_key => "YOUR_ME2DAY_APPLICATION_KEY")
 	=> "http://me2day.net/api/start_auth?token=XXXXXXXXXXXXXX"
 
