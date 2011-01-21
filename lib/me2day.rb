@@ -1,5 +1,5 @@
-require 'digest/md5'
 require 'httparty'
+require 'digest/md5'
 require 'me2day/client'
 
 module Me2day

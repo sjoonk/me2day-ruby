@@ -1,9 +1,28 @@
 An API client for me2day(http://me2day.net), a twitter-like popular Korean social networking service.
 
-Install
+Installation
 =====
 
 $ (sudo) gem install me2day-ruby
+
+Basic Usage
+=====
+
+
+
+
+웹 기반 쉬운 인증(Easy Auth)
+=====
+
+	@client = Me2day::Client.new(
+		:user_id => user_id,
+		:user_key => user_key,
+		:app_key => "YOUR_ME2DAY_APPLICATION_KEY"
+	)
+
+	@client.noop
+	@client.create_post "somebody", 'post[body]' => "안녕하세요, 미투데이!"
+
 
 
 me2day "Easy Authentication (Web-based)"

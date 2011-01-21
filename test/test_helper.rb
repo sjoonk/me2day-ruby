@@ -1,10 +1,17 @@
 require 'rubygems'
+require 'test/unit'
 require 'shoulda'
 require 'redgreen'
-require 'mocha'
+require 'matchy'
+require 'fakeweb'
 
-lib_files = File.join(File.dirname(__FILE__), "..", "lib")
+FakeWeb.allow_net_connect = false # blocking all real requests
 
-Dir.glob(File.join(lib_files, "**")).each do |file|
-  require file
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+$LOAD_PATH.unshift(File.dirname(__FILE__))
+FIXTURES_DIR = File.join(File.dirname(__FILE__), 'fixtures')
+
+require 'me2day'
+
+class Test::Unit::TestCase
 end
