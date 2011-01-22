@@ -30,6 +30,10 @@ app_key는 미투데이로부터 부여받은 APPLICATION_KEY이며, user_id와 
 	@client.get_person "me2_id"
 	@client.get_friends "me2_id"
 
+	posts = @client.get_posts("sjoonk")
+	puts posts.size
+	pp posts.first
+
 
 웹 기반 쉬운 인증
 =====
