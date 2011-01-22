@@ -1,6 +1,6 @@
 require File.join(File.dirname(__FILE__), "/test_helper")
 
-class Me2dayClientTest < Test::Unit::TestCase
+class ClientTest < Test::Unit::TestCase
   include Me2day
   
   context "get_auth_url" do

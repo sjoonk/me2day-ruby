@@ -3,6 +3,6 @@ require 'digest/md5'
 require 'me2day/client'
 
 module Me2day
-  VERSION = '0.1.1'
+  VERSION = '0.2.0'
 end
 
