@@ -54,7 +54,7 @@ module Me2day
         resp = self.class.get("/#{method_sym}#{id_part}.#{format}", :query => options)
         case resp.response.code.to_s
           when "200"
-            resp
+            resp.parsed_response
           when "401"
             raise UnauthenticatedError, resp.parsed_response.to_s  
           when "500"

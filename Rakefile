@@ -12,7 +12,7 @@ Rake::TestTask.new("test:units") { |t|
   t.warning = true
 }
 
-Echoe.new('me2day-ruby', '0.2.0') do |p|
+Echoe.new('me2day-ruby', '0.2.1') do |p|
   p.description    = "a me2day API client"
   p.url            = "https://github.com/sjoonk/me2day-ruby"
   p.author         = "Sukjoon Kim"

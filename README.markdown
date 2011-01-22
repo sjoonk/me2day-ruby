@@ -67,6 +67,7 @@ Todos
 =====
 
 	* Enhancing error handling
+	* Add more tests
 	* DRY cleaning!
 
 
