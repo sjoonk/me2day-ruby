@@ -5,6 +5,7 @@ An API client for me2day(http://me2day.net), a twitter-like popular Korean socia
 
 $ (sudo) gem install me2day-ruby
 
+
 기본 사용법(Basic Usage)
 =====
 
@@ -29,19 +30,20 @@ app_key는 미투데이로부터 부여받은 APPLICATION_KEY이며, user_id와 
 	@client.get_person "me2_id"
 	@client.get_friends "me2_id"
 
+
 웹 기반 쉬운 인증
 =====
 
 미투데이는 웹 기반 쉬운 인증이라는 자체 인증방식을 제공하며, 이 방법을 사용하면 사용자의 user_id와 user_key를 쉽게 얻을 수 있습니다.
 
-1. 인증 URL을 얻습니다.
+1) 인증 URL을 얻습니다.
 
 	auth_url = Me2day::Client.get_auth_url(:app_key => "YOUR_ME2DAY_APPLICATION_KEY")
 	=> "http://me2day.net/api/start_auth?token=XXXXXXXXXXXXXX"
 
-2. 위 auth_url로 리다이렉션(redirect) 합니다.	
+2)  위 auth_url로 리다이렉션(redirect) 합니다.	
 
-3. 설정한 콜백(callback)에서 다음과 같이 처리 합니다.
+3) 설정한 콜백(callback)에서 다음과 같이 처리 합니다.
 
 	token, user_id, user_key, result = request.params["token"], request.params["user_id"], request.params["user_key"], request.params["result"]
 
@@ -56,7 +58,7 @@ app_key는 미투데이로부터 부여받은 APPLICATION_KEY이며, user_id와 
 		@client.noop
 		=> {"error"=>{"code"=>"0", "description"=>nil, "message"=>"\354\204\261\352\263\265\355\226\210\354\212\265\353\213\210\353\213\244."}}
 
-		@client.create_post('me2_user_id', "Hi!, How are you!!")
+		@client.create_post 'me2_id', "오늘의 미친 짓!"
 
 	end
 
