@@ -62,7 +62,7 @@ app_key는 미투데이로부터 부여받은 APPLICATION_KEY이며, user_id와 
 		@client.noop
 		=> {"error"=>{"code"=>"0", "description"=>nil, "message"=>"\354\204\261\352\263\265\355\226\210\354\212\265\353\213\210\353\213\244."}}
 
-		@client.create_post 'me2_id', "오늘의 미친 짓!"
+		@client.create_post 'me2_id', 'post[body]' => "오늘의 미친 짓!"
 
 	end
 
